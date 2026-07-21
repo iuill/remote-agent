@@ -128,7 +128,7 @@ A typical release note should look like:
 
 - Describe runtime performance improvements.
 
-[View changes on GitHub](https://github.com/d-kimuson/remote-agent/compare/vPREVIOUS...vNEXT)
+[View changes on GitHub](https://github.com/iuill/remote-agent/compare/vPREVIOUS...vNEXT)
 ```
 
 Omit empty sections.

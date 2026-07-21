@@ -5,10 +5,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/d-kimuson/remote-agent/actions/workflows/ci.yaml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/d-kimuson/remote-agent/ci.yaml?branch=main&style=for-the-badge" alt="CI status"></a>
-  <a href="https://github.com/d-kimuson/remote-agent/releases"><img src="https://img.shields.io/github/v/release/d-kimuson/remote-agent?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
-  <a href="https://npmjs.com/package/@kimuson/remote-agent"><img src="https://img.shields.io/npm/v/%40kimuson%2Fremote-agent?color=yellow&style=for-the-badge" alt="npm version"></a>
-  <a href="https://deepwiki.com/d-kimuson/remote-agent"><img src="https://img.shields.io/badge/Ask-DeepWiki-2563eb?style=for-the-badge" alt="Ask DeepWiki"></a>
+  <a href="https://github.com/iuill/remote-agent/actions/workflows/ci.yaml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/iuill/remote-agent/ci.yaml?branch=main&style=for-the-badge" alt="CI status"></a>
+  <a href="https://github.com/iuill/remote-agent/releases"><img src="https://img.shields.io/github/v/release/iuill/remote-agent?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
+  <a href="https://deepwiki.com/iuill/remote-agent"><img src="https://img.shields.io/badge/Ask-DeepWiki-2563eb?style=for-the-badge" alt="Ask DeepWiki"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
 </p>
 
@@ -35,10 +34,19 @@
 
 ## Requirements
 
-- Node.js v24 and npm-compatible `npx` on the server machine.
+- Node.js v24 and pnpm on the server machine.
 - The agent account/CLI you want to use must be authenticated on the server machine as that agent normally requires. Built-in ACP adapter packages are bundled with `remote-agent`.
 
 ## Installation
+
+This fork is not published to npm. Clone and build it before running the commands below:
+
+```bash
+git clone https://github.com/iuill/remote-agent.git
+cd remote-agent
+pnpm install
+pnpm build
+```
 
 ### Quick Start: PWA with Tailscale(Recommended)
 
@@ -47,7 +55,7 @@
 Start `remote-agent` with the Tailscale setup helper:
 
 ```bash
-npx -y @kimuson/remote-agent@latest serve --tailscale --port 48989
+node dist/cli.mjs serve --tailscale --port 48989
 ```
 
 This command starts the `remote-agent` SPA/PWA and API server on port `48989`, configures Tailscale Serve for `https://<magic-dns-name>:48989`, then prints the URL and a QR code.
@@ -59,7 +67,7 @@ Tailscale Serve may need to update HTTPS certificate settings. If the command as
 For quick access from a phone or tablet on the same Wi-Fi/LAN without Tailscale, use Same-LAN mode:
 
 ```bash
-npx -y @kimuson/remote-agent@latest serve --same-lan --port 4445
+node dist/cli.mjs serve --same-lan --port 4445
 ```
 
 Same-LAN mode listens on `0.0.0.0`, generates a local CA and HTTPS certificate, advertises a `.local` HTTPS URL on the LAN, and prints a QR code for the mobile setup page. The setup page first opens over HTTP on the private IP so the phone can download the CA certificate, then guides you to trust it and open the HTTPS/PWA-capable URL.
@@ -71,7 +79,7 @@ Same-LAN is intended for trusted private networks only. Do not use it on public 
 The `serve` command starts both the client SPA/PWA and the API server:
 
 ```bash
-npx -y @kimuson/remote-agent@latest serve
+node dist/cli.mjs serve
 ```
 
 By default, the server listens on HTTP. If you do not use `--tailscale`, you are responsible for providing secure communication between the client and the server. This can be a local setwork, a VPN, a reverse proxy, or a tunnel such as Cloudflare Tunnel in front of the local `remote-agent` server.
@@ -79,13 +87,13 @@ By default, the server listens on HTTP. If you do not use `--tailscale`, you are
 Running `remote-agent` on a public hostname is not the recommended default. If you do expose it, set an API key and only share the URL with trusted users. You can generate an API key with:
 
 ```bash
-npx -y @kimuson/remote-agent@latest generate-api-key
+node dist/cli.mjs generate-api-key
 ```
 
 Then pass it to the server:
 
 ```bash
-RA_API_KEY='<generated-api-key>' RA_ALLOWED_IPS='x.x.x.x,y.y.y.y' npx -y @kimuson/remote-agent@latest serve
+RA_API_KEY='<generated-api-key>' RA_ALLOWED_IPS='x.x.x.x,y.y.y.y' node dist/cli.mjs serve
 ```
 
 Then clients must send the API key as a bearer token for `/api/*` requests. You can also restrict accepted client IPs with `RA_ALLOWED_IPS`.

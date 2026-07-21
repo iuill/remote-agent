@@ -83,13 +83,12 @@ If the workflow fails, inspect logs before taking corrective action:
 gh run view "$RUN_ID" --log-failed
 ```
 
-## Verify publish
+## Verify workflow output
 
 After the workflow succeeds:
 
 ```bash
 TAG="v0.0.0" # replace
-npm view @kimuson/remote-agent version
 gh release view "$TAG" --json tagName,name,isDraft,isPrerelease,url
 ```
 
@@ -107,7 +106,7 @@ Rewrite the notes according to `docs/release-note-guideline.md`. The generated d
 For a second-pass review before publishing, delegate a focused review to another agent:
 
 ```bash
-RELEASE_URL="https://github.com/d-kimuson/remote-agent/releases/tag/v0.0.0" # replace
+RELEASE_URL="https://github.com/iuill/remote-agent/releases/tag/v0.0.0" # replace
 pi -p "Read docs/release-note-guideline.md, review the Release Note at $RELEASE_URL, and identify concrete changes that should be made. Do not edit files or GitHub releases; only report findings."
 ```
 
@@ -135,6 +134,5 @@ Report:
 - released tag/version
 - local release command used
 - GitHub Actions run ID and result
-- npm version verification result
 - GitHub Release URL and draft/public state
 - any follow-up commits created for release automation or skill updates
