@@ -11,10 +11,10 @@ describe('CLI program', () => {
 
     const help = program.helpInformation();
 
-    expect(help).toContain('Usage: @kimuson/remote-agent [options] [command]');
+    expect(help).toContain('Usage: remote-agent [options] [command]');
     expect(help).toContain('generate-api-key');
     expect(help).toContain('serve [options]');
-    expect(help).not.toContain('Usage: @kimuson/remote-agent generate-api-key');
+    expect(help).not.toContain('Usage: remote-agent generate-api-key');
   });
 
   test('shows serve usage with configuration options', () => {
@@ -58,7 +58,7 @@ describe('CLI program', () => {
       code: 'commander.help',
     });
     expect(serveOptions).toBeNull();
-    expect(help).toContain('Usage: @kimuson/remote-agent [options] [command]');
+    expect(help).toContain('Usage: remote-agent [options] [command]');
   });
 
   test('passes same-LAN serve option to the serve handler', async () => {
