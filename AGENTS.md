@@ -24,5 +24,10 @@ browser SPA
 - Branch naming conventions: docs/branch_naming.md
 - E2E exploratory testing process: docs/e2e-exploratory-testing-process.md
 
+## Language
+
+- Git のコミットメッセージは日本語で記述する。
+- Pull Request のタイトルと本文は日本語で記述する。
+
 この AGENTS.md ファイルは必要な reference を dynamic に読む前提で薄く作られています。
 必ず関連するリファレンスを参照してからタスクを開始すること。

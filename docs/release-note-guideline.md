@@ -99,11 +99,10 @@ git log --oneline vPREVIOUS..vNEXT
 4. Produce a concrete review report before editing.
 5. Rewrite the release notes based on that report.
 
-For a second-pass review, ask another agent to review the draft against this guideline, for example:
-
-```bash
-pi -p 'Read docs/release-note-guideline.md, review the Release Note at <url>, and identify concrete changes that should be made. Do not edit files or GitHub releases; only report findings.'
-```
+For a second-pass review, use the current environment's collaboration or subagent capability when
+available. Ask the reviewer to read this guideline, inspect the draft at its Release URL, and report
+concrete improvements without editing files or the GitHub Release. If no such capability is
+available, perform the same review as a separate local pass.
 
 ## Final Shape
 
@@ -128,7 +127,7 @@ A typical release note should look like:
 
 - Describe runtime performance improvements.
 
-[View changes on GitHub](https://github.com/iuill/remote-agent/compare/vPREVIOUS...vNEXT)
+[View changes on GitHub](<repository-url>/compare/vPREVIOUS...vNEXT)
 ```
 
 Omit empty sections.

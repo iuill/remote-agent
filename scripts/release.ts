@@ -278,7 +278,7 @@ console.log(`\nUpdated package.json to ${nextVersion}`);
 
 run('git', ['add', 'package.json']);
 run('git', ['add', 'docs/openapi.json']);
-runOrFail('git', ['commit', '-S', '-m', `chore: release ${tag}`], 'Signed commit');
+runOrFail('git', ['commit', '-S', '-m', `chore: ${tag} をリリース`], 'Signed commit');
 runOrFail('git', ['tag', '-s', tag, '-m', tag], 'Signed tag');
 
 console.log(`\nCreated signed commit and tag ${tag}`);
