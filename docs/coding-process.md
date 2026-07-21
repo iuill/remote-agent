@@ -33,4 +33,4 @@ If ACP-compatible local agents are available, manually verify at least one sessi
 | `pnpm check:i18n` | Verify i18n resource keys and primary text |
 | `pnpm dev`        | Start Hono and Vite in parallel            |
 | `pnpm test`       | Run unit and browser tests                 |
-| `pnpm typecheck`  | Run TypeScript native preview type check   |
+| `pnpm typecheck`  | Run the TypeScript 7 type checker          |

@@ -31,8 +31,8 @@ Optional. Use the module, package, or feature area name.
 
 ## Rules
 
-- Description: imperative mood, lowercase start, no period at end
-- Language: English
+- Description: use an imperative, concise phrase with no period at the end
+- Language: Japanese
 - Keep the first line under 72 characters
 - Use body for "why", not "what" (the diff shows "what")
 
@@ -40,13 +40,13 @@ Optional. Use the module, package, or feature area name.
 
 Good:
 
-- `feat(api): add user authentication endpoint`
-- `fix: resolve race condition in queue processing`
-- `chore: update dependencies`
-- `refactor(auth): extract token validation to pure function`
+- `feat(api): ユーザー認証エンドポイントを追加`
+- `fix: キュー処理の競合状態を解消`
+- `chore: 依存関係を更新`
+- `refactor(auth): トークン検証を純粋関数として分離`
 
 Bad:
 
 - `Fixed bug` (no type, vague)
-- `feat: Add new feature for the user authentication system` (too long, capitalized)
+- `feat: ユーザー認証システムに関する新機能を追加するための変更` (too long)
 - `update` (no type, no description)

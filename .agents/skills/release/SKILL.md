@@ -103,11 +103,15 @@ gh release view "$TAG" --json body --jq .body
 
 Rewrite the notes according to `docs/release-note-guideline.md`. The generated draft is based on commit logs, so categories and wording may be wrong from the remote-agent product perspective. Remove internal-only updates, move entries to the correct category, merge intermediate same-release fixes into their related feature, and rewrite commit-message phrasing into release-note prose.
 
-For a second-pass review before publishing, delegate a focused review to another agent:
+For a second-pass review before publishing, delegate a focused review to another agent when the
+current environment provides a collaboration or subagent capability. Ask it to read
+`docs/release-note-guideline.md`, review the draft release, and report concrete improvements without
+editing files or the GitHub Release. If no subagent capability is available, perform the same review
+as a separate local pass before publishing.
 
 ```bash
-RELEASE_URL="https://github.com/iuill/remote-agent/releases/tag/v0.0.0" # replace
-pi -p "Read docs/release-note-guideline.md, review the Release Note at $RELEASE_URL, and identify concrete changes that should be made. Do not edit files or GitHub releases; only report findings."
+REPOSITORY_URL="$(gh repo view --json url --jq .url)"
+RELEASE_URL="${REPOSITORY_URL}/releases/tag/v0.0.0" # replace the tag
 ```
 
 Apply the review findings when they are consistent with the guideline.
