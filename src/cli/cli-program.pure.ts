@@ -20,7 +20,7 @@ type CliProgramOptions = {
 
 export const createCliProgram = (options: CliProgramOptions): Command => {
   const program = new Command()
-    .name(pkg.name)
+    .name('remote-agent')
     .version(pkg.version)
     .description(pkg.description)
     .action(() => {

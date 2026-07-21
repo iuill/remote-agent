@@ -286,4 +286,4 @@ console.log(`\nCreated signed commit and tag ${tag}`);
 runOrFail('git', ['push'], 'Push commits');
 runOrFail('git', ['push', '--tags'], 'Push tags');
 
-console.log(`\nReleased ${tag} - GitHub Actions will publish to npm.`);
+console.log(`\nReleased ${tag} - GitHub Actions will generate a draft GitHub Release.`);
