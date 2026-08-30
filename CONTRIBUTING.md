@@ -9,6 +9,11 @@ Open the repository in a Dev Container to get Node.js 24, the repository-pinned 
 TypeScript 7 support, and `gitleaks`. Dependencies are installed automatically when
 the container is created.
 
+The Dev Container uses the host's standalone Codex installation from
+`~/.codex/packages/standalone` through a read-only bind mount. Container startup fails early with
+installation guidance when the host installation is missing or unusable, so updating Codex on the
+host also updates the command used in the container.
+
 TypeScript 7 is the project compiler and editor language server. TypeScript 6 remains installed
 under the `typescript` package name only as a compatibility API for development tools that have not
 yet migrated to the TypeScript 7 API.

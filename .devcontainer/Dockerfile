@@ -17,8 +17,6 @@ RUN case "${TARGETARCH}" in \
     && tar --extract --gzip --file "${gitleaks_archive}" --directory /usr/local/bin gitleaks \
     && rm "${gitleaks_archive}" "gitleaks_${GITLEAKS_VERSION}_checksums.txt"
 
-RUN npm install --global "@openai/codex@latest"
-
 USER node
 
 RUN mkdir -p /home/node/.codex /home/node/.config/gh
